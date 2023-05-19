@@ -1,0 +1,8 @@
+enter a tile it will describe what is there. The environment, type of tile(bush, forest, beach) then the items(shrubs, trees, rocks) and items that can be picked up(backpack, sticks, small rocks, letters), navigation options describe the next tiles can move and is dangerous? ( the environment and not moveable items,). The description of scene and navigation options will stay up until move to the next tile. 
+
+print( item_describe_one , item_describe_two )
+
+the play area will be ringed by dangerous tiles. total grid five by five but playable would be four by four.
+if go out of bounds the player dies. If player move will do this give a warning and a chance to back out.
+
+to move, up minus four, right plus one, down plus four, left minus one to your index.
