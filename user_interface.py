@@ -17,21 +17,24 @@ class User_Interface:
 
     # if w scene and d return all blank spaces print d
 
-    def cutup_strings(self, index_cut, string_to_cut, padding, beginning_index=0):
+    def cutup_strings(self, block, string_to_cut, padding, beginning_index=0):
         """ Cuts up strings into chunks:
         need the length to chunk
         need the delimiter 
         
         """
-        index_cut = beginning_index + index_cut
-        if index_cut > len(string_to_cut):
+        index_cut = beginning_index + block
+        if string_to_cut[-1] != " ":
             string_to_cut = string_to_cut + " "
-            index_cut = len(string_to_cut) - 1
+        if index_cut > len(string_to_cut):
+            index_cut = len(string_to_cut) -1
+        if string_to_cut[index_cut] != " ":
+            index_cut += 2
         while string_to_cut[index_cut] != " ":
-            index_cut = index_cut - 1
+            index_cut -= 1
 
         if string_to_cut[index_cut] == " ":
-            cut_string = string_to_cut[beginning_index:index_cut]
+            cut_string = string_to_cut[beginning_index:index_cut].strip()
 
             padding = padding - len(cut_string)
             left_padding = padding /2
@@ -42,13 +45,16 @@ class User_Interface:
 
 e = User_Interface()
 #print(e.cutup_strings(15, e.a, 20)+"|"+e.cutup_strings(55, e.scene, 60)+"|"+e.cutup_strings(15, e.scene, 20))
-
+print()
 p1, i1 = e.cutup_strings(15, e.a, 20)
 p2, i2 = e.cutup_strings(55, e.scene, 60)
 p3, i3 = e.cutup_strings(15, e.d, 20)
-print(p1,p2,p3)
-while not p1.isspace() and not p2.isspace() and not p3.isspace():
+all_parts_print = p1+p2+p3
+print(all_parts_print)
+while not all_parts_print.isspace():
     p1, i1 = e.cutup_strings(15, e.a, 20, i1)
     p2, i2 = e.cutup_strings(55, e.scene, 60, i2)
     p3, i3 = e.cutup_strings(15, e.d, 20, i3)
-    print(p1,p2,p3)
+    all_parts_print = p1+p2+p3
+    print(all_parts_print)
+print()
