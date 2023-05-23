@@ -58,3 +58,6 @@ while not all_parts_print.isspace():
     all_parts_print = p1+p2+p3
     print(all_parts_print)
 print()
+
+if __name__=="main":
+    
