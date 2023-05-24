@@ -1,6 +1,14 @@
 class Map:
     """ Makes the map """
     def __init__(self) -> None:
+        #test
+        # self.keys = {
+        #     "w": self.north,
+        #     "south": "s",
+        #     "T": None 
+        # }
+        ##
+
         self.north = "w"
         self.east = "d"
         self.south = "s"

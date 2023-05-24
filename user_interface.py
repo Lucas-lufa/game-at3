@@ -42,22 +42,23 @@ class User_Interface:
             cut_string = int(left_padding) * " " + cut_string + right_padding * " "
             return cut_string ,index_cut
 
-def user_interface_test():
-    e = User_Interface()
-    #print(e.cutup_strings(15, e.a, 20)+"|"+e.cutup_strings(55, e.scene, 60)+"|"+e.cutup_strings(15, e.scene, 20))
-    print()
-    p1, i1 = e.cutup_strings(15, e.a, 20)
-    p2, i2 = e.cutup_strings(55, e.scene, 60)
-    p3, i3 = e.cutup_strings(15, e.d, 20)
-    all_parts_print = p1+p2+p3
-    print(all_parts_print)
-    while not all_parts_print.isspace():
-        p1, i1 = e.cutup_strings(15, e.a, 20, i1)
-        p2, i2 = e.cutup_strings(55, e.scene, 60, i2)
-        p3, i3 = e.cutup_strings(15, e.d, 20, i3)
+    def user_interface_test(self):
+        #self = User_Interface()
+        #print(e.cutup_strings(15, e.a, 20)+"|"+e.cutup_strings(55, e.scene, 60)+"|"+e.cutup_strings(15, e.scene, 20))
+        print()
+        p1, i1 = self.cutup_strings(15, self.a, 20)
+        p2, i2 = self.cutup_strings(55, self.scene, 60)
+        p3, i3 = self.cutup_strings(15, self.d, 20)
         all_parts_print = p1+p2+p3
         print(all_parts_print)
-    print()
+        while not all_parts_print.isspace():
+            p1, i1 = self.cutup_strings(15, self.a, 20, i1)
+            p2, i2 = self.cutup_strings(55, self.scene, 60, i2)
+            p3, i3 = self.cutup_strings(15, self.d, 20, i3)
+            all_parts_print = p1+p2+p3
+            print(all_parts_print)
+        print()
 
-if __name__=="main":
-    user_interface_test()
+if __name__ == "__main__":
+    e = User_Interface()
+    e.user_interface_test()
