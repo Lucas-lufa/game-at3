@@ -16,7 +16,8 @@ while player_input != "quit":
     p1,i1 = ui.cutup_strings(10,
                      world_map.map_tiles[world_map.player_position-8],
                      80)
-    print(p1)
+    north = "\n" + " " * 40 + world_map.north
+    print(p1 + north)
     p1, i1 = ui.cutup_strings(10,
                         world_map.map_tiles[world_map.player_position-1],
                         19)
@@ -26,11 +27,12 @@ while player_input != "quit":
     p3, i3 = ui.cutup_strings(10,
                         world_map.map_tiles[world_map.player_position+1],
                         19)
-    all_parts_print = "|"+p1+"|"+p2+"|"+p3+"|"
+    all_parts_print = "|"+p1+ world_map.west +p2+world_map.east+p3+"|"
     print(all_parts_print)
+    south = " " * 40 + world_map.south + "\n"
     p1,i1 = ui.cutup_strings(10,
                      world_map.map_tiles[world_map.player_position+8],
                      80)
-    print(p1)
+    print(south + p1)
     player_input = input()
     world_map.navigation(player_input)
