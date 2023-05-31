@@ -36,21 +36,32 @@ class Map:
             [d,d,d,d,d,d,d]
         ]
 
-        self.player_position_x = 1
-        self.player_position_y = 1
+        self.player_position_x = 0
+        self.player_position_y = 6
 
-    # def keep_in_bounds(self):
-    #     """ stops going out side of the bounds of the map """
-    #     if len(self.map_tiles) <= 
-    #     return True
+    def add_keep_in_bounds(self, position):
+        """ stops going out side of the bounds of the map """
+        player_position = position + 1
+        if len(self.map_tiles) -1 <= player_position or player_position < 0:
+            return position
+        else:
+            return player_position
+
+    def minus_keep_in_bounds(self, position):
+        """ stops going out side of the bounds of the map """
+        player_position = position - 1
+        if len(self.map_tiles) -1 <= player_position or player_position < 0:
+            return position
+        else:
+            return player_position
 
     def navigation(self, user_input):
         """ moves north, south, east and west """
         if user_input == self.north:
-            self.player_position_x -= 1
+            self.player_position_x = self.minus_keep_in_bounds(self.player_position_x)
         if user_input == self.south:
-            self.player_position_x += 1
+            self.player_position_x = self.add_keep_in_bounds(self.player_position_x)
         if user_input == self.east:
-            self.player_position_y += 1 
+            self.player_position_y = self.add_keep_in_bounds(self.player_position_y) 
         if user_input == self.west:
-            self.player_position_y -= 1
+            self.player_position_y = self.minus_keep_in_bounds(self.player_position_y)
