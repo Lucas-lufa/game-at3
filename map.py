@@ -14,8 +14,6 @@ class Map:
         self.south = "s"
         self.west = "a"
 
-        self.player_position = 8
-
         self.death = "death"
         self.water = "water"
         self.forrest = "forrest"
@@ -29,22 +27,30 @@ class Map:
         b = self.bridge
         
         self.map_tiles = [
-            d,d,d,d,d,d,d,
-            d,w,s,f,f,f,d,
-            d,w,s,f,f,f,d,
-            d,w,s,f,f,f,d,
-            d,w,w,b,w,w,d,
-            d,w,s,f,f,f,d,
-            d,d,d,d,d,d,d
+            [d,d,d,d,d,d,d],
+            [d,w,s,f,f,f,d],
+            [d,w,s,f,f,f,d],
+            [d,w,s,f,f,f,d],
+            [d,w,w,b,w,w,d],
+            [d,w,s,f,f,f,d],
+            [d,d,d,d,d,d,d]
         ]
+
+        self.player_position_x = 1
+        self.player_position_y = 1
+
+    # def keep_in_bounds(self):
+    #     """ stops going out side of the bounds of the map """
+    #     if len(self.map_tiles) <= 
+    #     return True
 
     def navigation(self, user_input):
         """ moves north, south, east and west """
         if user_input == self.north:
-            self.player_position -= 8
+            self.player_position_x -= 1
         if user_input == self.south:
-            self.player_position += 8
+            self.player_position_x += 1
         if user_input == self.east:
-            self.player_position += 1
+            self.player_position_y += 1 
         if user_input == self.west:
-            self.player_position -= 1
+            self.player_position_y -= 1
