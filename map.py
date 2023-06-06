@@ -36,8 +36,31 @@ class Map:
             [d,d,d,d,d,d,d]
         ]
 
+        self.MAP_SIZE = len(self.map_tiles)
         self.player_position_x = 0
-        self.player_position_y = 6
+        self.player_position_y = 0
+
+    @property
+    def north_look(self):
+        available = self.player_position_x - 1
+        if available < 0: 
+            return "Look into the void "
+        else:
+            return self.map_tiles[available][self.player_position_y]
+
+    @property
+    def east_look(self):
+        available = self.player_position_y + 1
+        if available < self.MAP_SIZE: 
+            return self.map_tiles[self.player_position_x][available]
+        else:
+            "Look into the void"
+
+    def keep_in_bounds(self, coordinate):
+        if coordinate >= len(self.map_tiles):
+            return "Look into the void of unreality"
+        else:
+            return coordinate
 
     def add_keep_in_bounds(self, position):
         """ stops going out side of the bounds of the map """

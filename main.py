@@ -15,12 +15,10 @@ is_alive = True
 
 while player_input != "quit":   
     p1,i1 = ui.cutup_strings(10,
-                     world_map.map_tiles
-                         [world_map.player_position_x -1 ]
-                         [world_map.player_position_y],
+                     world_map.north_look,
                      80)
+    print(p1)
     north = "\n" + " " * 40 + world_map.north
-    print(p1 + north)
     p1, i1 = ui.cutup_strings(10,
                         world_map.map_tiles
                             [world_map.player_position_x]
@@ -32,9 +30,9 @@ while player_input != "quit":
                             [world_map.player_position_y],
                         38)
     p3, i3 = ui.cutup_strings(10,
-                        world_map.map_tiles
+                        world_map.add_keep_in_bounds(world_map.map_tiles
                             [world_map.player_position_x]
-                            [world_map.player_position_y +1 ],
+                            [world_map.player_position_y +1 ]),
                         19)
     all_parts_print = "|"+p1+ world_map.west +p2+world_map.east+p3+"|"
     print(all_parts_print)

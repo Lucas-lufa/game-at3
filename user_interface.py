@@ -19,9 +19,8 @@ class User_Interface:
 
     def cutup_strings(self, block, string_to_cut, padding, beginning_index=0):
         """ Cuts up strings into chunks:
-        need the length to chunk
-        need the delimiter 
-        
+            need the length to chunk
+            need the delimiter 
         """
         index_cut = beginning_index + block
         if string_to_cut[-1] != " ":
