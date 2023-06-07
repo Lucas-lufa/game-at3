@@ -37,40 +37,31 @@ class Map:
         ]
 
         self.MAP_SIZE = len(self.map_tiles)
-        self.player_position_x = 0
-        self.player_position_y = 0
+        self.x_player_position = 1
+        self.y_player_position = 1
 
     @property
     def north_look(self):
-        available = self.player_position_x - 1
-        if available < 0: 
-            return "Look into the void "
-        else:
-            return self.map_tiles[available][self.player_position_y]
-
+        return self.x_player_position - 1
+        
     @property
     def east_look(self):
-        available = self.player_position_y + 1
-        if available < self.MAP_SIZE: 
-            return self.map_tiles[self.player_position_x][available]
-        else:
-            "Look into the void"
+        return self.y_player_position + 1
+        
+    @property
+    def south_look(self):
+        return self.x_player_position + 1
+    
+    @property
+    def west_look(self):
+        return self.y_player_position - 1
 
     def keep_in_bounds(self, coordinate):
-        if coordinate >= len(self.map_tiles):
-            return "Look into the void of unreality"
-        else:
-            return coordinate
-
-    def add_keep_in_bounds(self, position):
-        """ stops going out side of the bounds of the map """
-        player_position = position + 1
-        if len(self.map_tiles) -1 <= player_position or player_position < 0:
-            return position
-        else:
-            return player_position
-
-    def minus_keep_in_bounds(self, position):
+        if coordinate > self.MAP_SIZE :
+            return coordinate -1
+        if coordinate < 0 :
+            return coordinate +1
+        return coordinate
         """ stops going out side of the bounds of the map """
         player_position = position - 1
         if len(self.map_tiles) -1 <= player_position or player_position < 0:
@@ -81,10 +72,10 @@ class Map:
     def navigation(self, user_input):
         """ moves north, south, east and west """
         if user_input == self.north:
-            self.player_position_x = self.minus_keep_in_bounds(self.player_position_x)
+            self.x_player_position = self.keep_in_bounds(self.north_look)
         if user_input == self.south:
-            self.player_position_x = self.add_keep_in_bounds(self.player_position_x)
+            self.x_player_position = self.keep_in_bounds(self.south_look)
         if user_input == self.east:
-            self.player_position_y = self.add_keep_in_bounds(self.player_position_y) 
+            self.y_player_position = self.keep_in_bounds(self.east_look) 
         if user_input == self.west:
-            self.player_position_y = self.minus_keep_in_bounds(self.player_position_y)
+            self.y_player_position = self.keep_in_bounds(self.west_look)
