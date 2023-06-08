@@ -12,16 +12,15 @@ player_input = ""
 player = Player()
 is_alive = True
 
-
 while player_input != "quit":   
     p1,i1 = ui.cutup_strings(10,
-                     world_map.map_tiles
-                     [world_map.north_look]
-                     [world_map.y_player_position],
+                     ui.string_to_cut(world_map.MAP_SIZE,
+                                      world_map.north_look,
+                                      world_map.y_player_position),
                      80)
     print(p1)
     north = "\n" + " " * 40 + world_map.north
-    print(north + f"x=  {world_map.x_player_position} y= {world_map.y_player_position}")
+    print(north + f" x=  {world_map.x_player_position} y= {world_map.y_player_position}")
     p1, i1 = ui.cutup_strings(10,
                         world_map.map_tiles
                             [world_map.x_player_position]

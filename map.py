@@ -37,7 +37,7 @@ class Map:
         ]
 
         self.MAP_SIZE = len(self.map_tiles)
-        self.x_player_position = 1
+        self.x_player_position = 0
         self.y_player_position = 1
 
     @property
@@ -55,6 +55,9 @@ class Map:
     @property
     def west_look(self):
         return self.y_player_position - 1
+    
+    def tile_string(self, x_position, y_position):
+        return self.map_tiles[x_position][y_position]
 
     def keep_in_bounds(self, coordinate):
         if coordinate > self.MAP_SIZE :
