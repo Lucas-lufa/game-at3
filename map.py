@@ -37,7 +37,7 @@ class Map:
         ]
 
         self.MAP_SIZE = len(self.map_tiles)
-        self.x_player_position = 0
+        self.x_player_position = 1
         self.y_player_position = 1
 
     @property

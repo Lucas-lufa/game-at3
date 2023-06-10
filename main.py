@@ -12,11 +12,22 @@ player_input = ""
 player = Player()
 is_alive = True
 
-while player_input != "quit":   
-    p1,i1 = ui.cutup_strings(10,
-                     ui.string_to_cut(world_map.MAP_SIZE,
+def string_to_cut(MAP_SIZE, x_player_position, y_player_position):
+        """ Takes in a map size and player position
+            gives back tile string or out of bounds string """
+        if x_player_position < 0 or x_player_position >= MAP_SIZE:
+            return "Look upon the void of reality"
+        if y_player_position < 0 or y_player_position >= MAP_SIZE:
+            return "Look upon the void of reality"
+        return world_map.tile_string(x_player_position,y_player_position)
+
+
+while player_input != "quit":
+    too_north = string_to_cut(world_map.MAP_SIZE,
                                       world_map.north_look,
-                                      world_map.y_player_position),
+                                      world_map.y_player_position)
+    p1,i1 = ui.cutup_strings(10,
+                     too_north,
                      80)
     print(p1)
     north = "\n" + " " * 40 + world_map.north

@@ -1,4 +1,3 @@
-import map
 
 class User_Interface:
     """ To display the text on the screen """
@@ -18,15 +17,6 @@ class User_Interface:
     #print ("*"* 120)
 
     # if w scene and d return all blank spaces print d
-
-    def string_to_cut(self, MAP_SIZE, x_player_position, y_player_position):
-        """ Takes in a map size and player position
-            gives back tile string or out of bounds string """
-        if x_player_position < 0 or x_player_position >= MAP_SIZE:
-            return "Look upon the void of reality"
-        if y_player_position < 0 or y_player_position >= MAP_SIZE:
-            return "Look upon the void of reality"
-        return map.tile_string(x_player_position,y_player_position)
     
     def cutup_strings(self, block, string_to_cut, padding, beginning_index=0):
         """ Cuts up strings into chunks:
