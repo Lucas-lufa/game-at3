@@ -44,17 +44,21 @@ class User_Interface:
 
     def user_interface_one(self, north_south_examine):       
         print()
-        all_parts, one_index = self.cutup_string(40, north_south_examine, 80)
+        all_parts, one_index = self.cutup_string(50, north_south_examine, 100)
         all_parts
         print(all_parts)
         while not all_parts.isspace():
             print()
-            all_parts, one_index = self.cutup_string(40, north_south_examine, 80,one_index)
+            all_parts, one_index = self.cutup_string(
+                50, 
+                north_south_examine, 
+                100, 
+                one_index)
             all_parts
             print(all_parts)
         print()
 
-    def user_interface_three(self, east, scene, west):
+    def user_interface_three(self, west, scene, east):
         
         print()
         p1, one_index = self.cutup_string(15, west, 20)
