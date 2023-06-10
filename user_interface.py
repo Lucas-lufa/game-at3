@@ -18,7 +18,7 @@ class User_Interface:
 
     # if w scene and d return all blank spaces print d
     
-    def cutup_strings(self, block, string_to_cut, padding, beginning_index=0):
+    def cutup_string(self, block, string_to_cut, padding, beginning_index=0):
         """ Cuts up strings into chunks:
             need the length to chunk
             need the delimiter """
@@ -42,23 +42,34 @@ class User_Interface:
             cut_string = int(left_padding) * " " + cut_string + right_padding * " "
             return cut_string ,index_cut
 
-    def user_interface_test(self):
-        #self = User_Interface()
-        #print(e.cutup_strings(15, e.a, 20)+"|"+e.cutup_strings(55, e.scene, 60)+"|"+e.cutup_strings(15, e.scene, 20))
+    def user_interface_one(self, north_south_examine):       
         print()
-        p1, i1 = self.cutup_strings(15, self.a, 20)
-        p2, i2 = self.cutup_strings(55, self.scene, 60)
-        p3, i3 = self.cutup_strings(15, self.d, 20)
-        all_parts_print = p1+p2+p3
-        print(all_parts_print)
-        while not all_parts_print.isspace():
-            p1, i1 = self.cutup_strings(15, self.a, 20, i1)
-            p2, i2 = self.cutup_strings(55, self.scene, 60, i2)
-            p3, i3 = self.cutup_strings(15, self.d, 20, i3)
-            all_parts_print = p1+p2+p3
-            print(all_parts_print)
+        all_parts, one_index = self.cutup_string(40, north_south_examine, 80)
+        all_parts
+        print(all_parts)
+        while not all_parts.isspace():
+            print()
+            all_parts, one_index = self.cutup_string(40, north_south_examine, 80,one_index)
+            all_parts
+            print(all_parts)
+        print()
+
+    def user_interface_three(self, east, scene, west):
+        
+        print()
+        p1, one_index = self.cutup_string(15, west, 20)
+        p2, two_index = self.cutup_string(55, scene, 60)
+        p3, three_index = self.cutup_string(15, east, 20)
+        all_parts = p1+p2+p3
+        print(all_parts)
+        while not all_parts.isspace():
+            p1, one_index = self.cutup_string(15, west, 20, one_index)
+            p2, two_index = self.cutup_string(55, scene, 60, two_index)
+            p3, three_index = self.cutup_string(15, east, 20, three_index)
+            all_parts = p1+p2+p3
+            print(all_parts)
         print()
 
 if __name__ == "__main__":
     e = User_Interface()
-    e.user_interface_test()
+    e.user_interface_three()
