@@ -23,6 +23,7 @@ def string_to_cut(MAP_SIZE, x_player_position, y_player_position):
 
 
 while player_input != "quit":
+    """ Game loop """
     too_north = string_to_cut(world_map.MAP_SIZE,
                                         world_map.north_look,
                                         world_map.y_player_position)

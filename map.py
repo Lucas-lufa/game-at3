@@ -26,6 +26,7 @@ class Map:
         s = self.sand
         b = self.bridge
         
+        """ Need to generate map """
         self.map_tiles = [
             [d,d,d,d,d,d,d],
             [d,w,s,f,f,f,d],

@@ -42,7 +42,8 @@ class User_Interface:
             cut_string = int(left_padding) * " " + cut_string + right_padding * " "
             return cut_string ,index_cut
 
-    def user_interface_one(self, north_south_examine):       
+    def user_interface_one(self, north_south_examine):
+        """ Used to rendering the top and bottom of the screen """     
         print()
         all_parts, one_index = self.cutup_string(50, north_south_examine, 100)
         all_parts
@@ -59,7 +60,7 @@ class User_Interface:
         print()
 
     def user_interface_three(self, west, scene, east):
-        
+        """ Will render three, the middle of the screen """
         print()
         p1, one_index = self.cutup_string(15, west, 20)
         p2, two_index = self.cutup_string(55, scene, 60)
