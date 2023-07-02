@@ -12,4 +12,22 @@ class Tile:
         self._traversable = _traversable
         self.items = []
 
-class        
+class Death:
+    """ If on this tile will end the the game """
+    def __init__(self, _deadly=True, _traversable=True) -> None:
+        super.__init__(_deadly=_deadly, _traversable=_traversable)
+
+        self.message = "Game ended"
+
+class Water:
+    """ Water can not be traversed """
+    def __init__(self, _deadly=False, _traversable=False) -> None:
+        super.__init__(_deadly=_deadly, _traversable=_traversable)
+
+        self.message = "Lovely water but you can't swim!"
+
+class Forrest:
+
+class Sand:
+
+class Bridge:        
