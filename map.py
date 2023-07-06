@@ -1,3 +1,5 @@
+import tile 
+
 class Map:
     """ Makes the map """
     def __init__(self) -> None:
@@ -14,11 +16,11 @@ class Map:
         self.south = "s"
         self.west = "a"
 
-        self.death = "death"
-        self.water = "water"
-        self.forrest = "forrest"
-        self.sand = "sand"
-        self.bridge = "bridge"
+        self.death = tile.Death()
+        self.water = tile.Water()
+        self.forrest = tile.Forrest()
+        self.sand = tile.Sand()
+        self.bridge = tile.Bridge()
 
         d = self.death
         w = self.water
@@ -58,7 +60,8 @@ class Map:
         return self.y_player_position - 1
     
     def tile_string(self, x_position, y_position):
-        return self.map_tiles[x_position][y_position]
+        """  """
+        return self.map_tiles[x_position][y_position].__str__()
 
     def keep_in_bounds(self, coordinate):
         if coordinate > self.MAP_SIZE :

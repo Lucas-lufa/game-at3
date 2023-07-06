@@ -32,7 +32,8 @@ while player_input != "quit":
                                         world_map.x_player_position,
                                         world_map.west_look)
 
-    scene = world_map.map_tiles[world_map.x_player_position][world_map.y_player_position]
+    scene = world_map.tile_string(world_map.x_player_position, 
+                                  world_map.y_player_position)
 
     too_east = string_to_cut(world_map.MAP_SIZE,
                                         world_map.x_player_position,
