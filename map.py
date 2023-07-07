@@ -63,8 +63,8 @@ class Map:
         """  """
         return self.map_tiles[x_position][y_position].__str__()
 
-    def keep_in_bounds(self, coordinate):
-        if coordinate > self.MAP_SIZE :
+    def keep_in_bounds(self, coordinate, MAP_SIZE):
+        if coordinate > MAP_SIZE :
             return coordinate -1
         if coordinate < 0 :
             return coordinate +1
@@ -79,10 +79,10 @@ class Map:
     def navigation(self, user_input):
         """ moves north, south, east and west """
         if user_input == self.north:
-            self.x_player_position = self.keep_in_bounds(self.north_look)
+            self.x_player_position = self.keep_in_bounds(self.north_look,self.MAP_SIZE)
         if user_input == self.south:
-            self.x_player_position = self.keep_in_bounds(self.south_look)
+            self.x_player_position = self.keep_in_bounds(self.south_look,self.MAP_SIZE)
         if user_input == self.east:
-            self.y_player_position = self.keep_in_bounds(self.east_look) 
+            self.y_player_position = self.keep_in_bounds(self.east_look,self.MAP_SIZE) 
         if user_input == self.west:
-            self.y_player_position = self.keep_in_bounds(self.west_look)
+            self.y_player_position = self.keep_in_bounds(self.west_look,self.MAP_SIZE)

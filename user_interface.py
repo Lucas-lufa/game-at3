@@ -13,7 +13,7 @@ class User_Interface:
     d = "D if go out of bounds the player dies. If player move will do this give a warning and a chance to back out. To move, up minus four, right plus one, down plus four, left minus one to your index."
 
     examine = ""
-
+#   ctrl+l clears screen
     #print ("*"* 120)
 
     # if w scene and d return all blank spaces print d

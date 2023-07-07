@@ -17,7 +17,7 @@ class Death(Tile):
     def __init__(self, _deadly=True, _traversable=True) -> None:
         super().__init__(_deadly=_deadly, _traversable=_traversable)
 
-        self.message = "Game ended"
+        self.message = "A Dangerous place! "
 
     def __str__(self) -> str:
         return self.message
@@ -27,7 +27,7 @@ class Water(Tile):
     def __init__(self, _deadly=False, _traversable=False) -> None:
         super().__init__(_deadly=_deadly, _traversable=_traversable)
 
-        self.message = "Lovely water but you can't swim!"
+        self.message = "Lovely water but you can't swim!. "
 
     def __str__(self) -> str:
         return self.message
@@ -36,10 +36,13 @@ class Bridge(Tile):
     """ The bridge crosses water, it is closed until quests done """
     def __init__(self, _deadly=False, _traversable=False) -> None:
         super().__init__(_deadly=_deadly, _traversable=_traversable)
-
-        self.message = ""
-
+#         eyes = "open" if self.pixels[10] == self.BLANK else "closed"
+            
     def __str__(self) -> str:
+        if self._traversable:
+            self.message = "Bridge across the water. "
+        else:
+            self.message = "Bridge is closed. "
         return self.message
 
 class Forrest(Tile):
@@ -47,7 +50,7 @@ class Forrest(Tile):
     def __init__(self, _deadly=False, _traversable=True) -> None:
         super().__init__(_deadly=_deadly, _traversable=_traversable)
 
-        self.message = "forrest"
+        self.message = "Forrest area full of trees. "
 
     def __str__(self) -> str:
         return self.message
@@ -57,7 +60,7 @@ class Sand(Tile):
     def __init__(self, _deadly=False, _traversable=True) -> None:
         super().__init__(_deadly=_deadly, _traversable=_traversable)
 
-        self.message = "sand"
+        self.message = "Sandy patch not much around. "
     
     def __str__(self) -> str:
         return self.message
