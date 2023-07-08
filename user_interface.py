@@ -29,7 +29,9 @@ class User_Interface:
         if index_cut > len(string_to_cut):
             index_cut = len(string_to_cut) -1
         if string_to_cut[index_cut] != " ":
-            index_cut += 2
+            index_cut += 1
+            if string_to_cut[index_cut] != " ":
+                index_cut += 1
         while string_to_cut[index_cut] != " ":
             index_cut -= 1
 

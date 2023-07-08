@@ -40,8 +40,8 @@ class Map:
         ]
 
         self.MAP_SIZE = len(self.map_tiles)
-        self.x_player_position = 1
-        self.y_player_position = 1
+        self.x_player_position = 0
+        self.y_player_position = 0
 
     @property
     def north_look(self):
@@ -66,8 +66,8 @@ class Map:
     def keep_in_bounds(self, coordinate, MAP_SIZE):
         if coordinate > MAP_SIZE :
             return coordinate -1
-        if coordinate < 0 :
-            return coordinate +1
+        if coordinate <= 0 :
+            return 0
         return coordinate
         """ stops going out side of the bounds of the map """
         player_position = position - 1
@@ -79,10 +79,14 @@ class Map:
     def navigation(self, user_input):
         """ moves north, south, east and west """
         if user_input == self.north:
-            self.x_player_position = self.keep_in_bounds(self.north_look,self.MAP_SIZE)
+            if self.map_tiles[self.north_look][self.y_player_position]._traversable:
+                self.x_player_position = self.keep_in_bounds(self.north_look,self.MAP_SIZE)
         if user_input == self.south:
-            self.x_player_position = self.keep_in_bounds(self.south_look,self.MAP_SIZE)
+            if self.map_tiles[self.south_look][self.y_player_position]._traversable:
+                self.x_player_position = self.keep_in_bounds(self.south_look,self.MAP_SIZE)
         if user_input == self.east:
-            self.y_player_position = self.keep_in_bounds(self.east_look,self.MAP_SIZE) 
+            if self.map_tiles[self.x_player_position][self.east_look]._traversable:
+                self.y_player_position = self.keep_in_bounds(self.east_look,self.MAP_SIZE)
         if user_input == self.west:
-            self.y_player_position = self.keep_in_bounds(self.west_look,self.MAP_SIZE)
+            if self.map_tiles[self.x_player_position][self.west_look]._traversable:
+                self.y_player_position = self.keep_in_bounds(self.west_look,self.MAP_SIZE)
