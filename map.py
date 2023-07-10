@@ -1,4 +1,5 @@
-import tile 
+import tile
+import item
 
 class Map:
     """ Makes the map """
@@ -22,6 +23,15 @@ class Map:
         self.sand = tile.Sand()
         self.bridge = tile.Bridge()
 
+        # self.q = tile.Sand()
+        # q = self.q
+        #rock = item.Rock()
+        #rock1 = item.Rock()
+        # self.map_tiles[1][2].items.append(item.Rock())
+        # self.map_tiles[1][2].items.append(item.Rock())
+        self.sand.items.append(item.Rock())
+        self.forrest.items.append(item.Tree())
+
         d = self.death
         w = self.water
         f = self.forrest
@@ -40,8 +50,9 @@ class Map:
         ]
 
         self.MAP_SIZE = len(self.map_tiles)
-        self.x_player_position = 0
-        self.y_player_position = 0
+        self.x_player_position = 1
+        self.y_player_position = 2
+
 
     @property
     def north_look(self):
@@ -60,8 +71,15 @@ class Map:
         return self.y_player_position - 1
     
     def tile_string(self, x_position, y_position):
-        """  """
-        return self.map_tiles[x_position][y_position].__str__()
+        """ Get the string for the tile and all the items """
+        string = self.map_tiles[x_position][y_position].__str__()
+        for _ in self.map_tiles[x_position][y_position].items:
+            if x_position == self.x_player_position and y_position == self.y_player_position:
+                if _._takeable == True:
+                    string += _.__str__()
+            if _._takeable == False:
+                    string += _.__str__()
+        return string
 
     def keep_in_bounds(self, coordinate, MAP_SIZE):
         if coordinate > MAP_SIZE :
