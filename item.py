@@ -8,17 +8,17 @@ class Item:
         return self.name < other.name
     
 class Rock(Item):
-    def __init__(self, name = "rock" , takeable = True) -> None:
+    def __init__(self, name = "Rock, " , takeable = True) -> None:
         super().__init__(name=name, takeable=takeable)
-        self.description = "A good sized rock. "
+        self.description = "of a good size. "
 
     def __str__(self) -> str:
-        return self.description
+        return self.name + self.description
     
 class Tree(Item):
-    def __init__(self, name = "tree", takeable = False) -> None:
+    def __init__(self, name = "Tree, ", takeable = False) -> None:
         super().__init__(name=name, takeable=takeable)
-        self.description = "Tall eucalyptus tree. "
+        self.description = "a tall eucalyptus. "
 
     def __str__(self) -> str:
-        return self.description
+        return self.name + self.description
