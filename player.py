@@ -3,8 +3,22 @@ class Player:
         self.is_alive = True
         self.hands = []
 
-    def grab(hands, thing):
-        if len(hands) > 2:
-            hands.append(thing)
-        if len(hands) <= 2:
+    def use(self):
+        """ Takes out of hands or backpack uses it.
+        lists the items to chose from
+        use selected item """
+        pass
+
+    def examine(self):
+        """ Lists items or backpack.
+        returns description of item """
+        pass
+
+    def put(self):
+        pass
+
+    def grab(self, thing):
+        if len(self.hands) > 2:
+            self.hands.append(thing)
+        if len(self.hands) <= 2:
             print ("Hands are full!")
