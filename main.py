@@ -48,5 +48,7 @@ while player_input != "quit":
                             scene, 
                             too_east)
     ui.user_interface_one(too_south)
+    print(str(world_map.x_player_position),str(
+        world_map.y_player_position))
     player_input = input()
     world_map.navigation(player_input)

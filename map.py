@@ -12,10 +12,10 @@ class Map:
         # }
         ##
 
-        self.north = "w"
-        self.east = "d"
-        self.south = "s"
-        self.west = "a"
+        self.north = "w" #^[[A
+        self.east = "d" #^[[C
+        self.south = "s" #^[[B
+        self.west = "a" #^[[D
 
         self.death = tile.Death()
         self.water = tile.Water()
