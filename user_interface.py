@@ -1,5 +1,5 @@
 
-class User_Interface:
+class UserInterface:
     """ To display the text on the screen """
 
     scene = "enter a tile it will describe what is there. The environment, type of tile(bush, forest, beach) then the items(shrubs, trees, rocks) and items that can be picked up(backpack, sticks, small rocks, letters), navigation options describe the next tiles can move and is dangerous? ( the environment and not moveable items,). The description of scene and navigation options will stay up until move to the next tile. "
@@ -18,7 +18,7 @@ class User_Interface:
 
     # if w scene and d return all blank spaces print d
     
-    def cutup_string(self, block, string_to_cut, padding, beginning_index=0):
+    def cutup_string(self, block:int, string_to_cut:str, padding:int, beginning_index:int=0):
         """ Cuts up strings into chunks:
             need the length to chunk
             need the delimiter """
@@ -78,5 +78,5 @@ class User_Interface:
         print()
 
 if __name__ == "__main__":
-    e = User_Interface()
+    e = UserInterface()
     e.user_interface_three()

@@ -1,12 +1,12 @@
 from player import Player
-from user_interface import User_Interface
+from user_interface import UserInterface
 from map import Map
 
 # import math
 # print(math.sqrt(9))
 
 world_map = Map()
-ui = User_Interface()
+ui = UserInterface()
 player_input = ""
 
 player = Player()
@@ -24,6 +24,12 @@ def string_to_cut(MAP_SIZE, x_player_position, y_player_position):
 
 while player_input != "quit":
     """ Game loop """
+    scene = world_map.tile_string(world_map.x_player_position, 
+                                  world_map.y_player_position)
+    if world_map.map_tiles[world_map.x_player_position][world_map.y_player_position]._deadly:
+         print("Player died!")
+         break
+    
     too_north = string_to_cut(world_map.MAP_SIZE,
                                         world_map.north_look,
                                         world_map.y_player_position)
@@ -31,9 +37,6 @@ while player_input != "quit":
     too_west = string_to_cut(world_map.MAP_SIZE,
                                         world_map.x_player_position,
                                         world_map.west_look)
-
-    scene = world_map.tile_string(world_map.x_player_position, 
-                                  world_map.y_player_position)
 
     too_east = string_to_cut(world_map.MAP_SIZE,
                                         world_map.x_player_position,

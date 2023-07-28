@@ -4,7 +4,7 @@ class Player:
         self.hands = []
 
     def use(self):
-        """ Takes out of hands or backpack uses it.
+        """ Takes out of hands or bag uses it.
         lists the items to chose from
         use selected item """
         pass
@@ -15,6 +15,7 @@ class Player:
         pass
 
     def put(self):
+        """ Takes from bag and puts into items """
         pass
 
     def grab(self, thing):

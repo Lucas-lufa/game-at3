@@ -75,7 +75,7 @@ class Map:
         string = self.map_tiles[x_position][y_position].__str__()
         for _ in self.map_tiles[x_position][y_position].items:
             if x_position == self.x_player_position and y_position == self.y_player_position:
-                if _._takeable == True:
+                if _._takeable:
                     string += _.__str__()
             if _._takeable == False:
                     string += _.__str__()
