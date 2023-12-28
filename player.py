@@ -3,16 +3,16 @@ class Player:
         self.is_alive = True
         self.hands = []
 
-    def use(self):
+    def use(self, item):
         """ Takes out of hands or bag uses it.
         lists the items to chose from
         use selected item """
-        pass
+        item.use()
 
-    def examine(self):
+    def examine(self, item):
         """ Lists items or backpack.
         returns description of item """
-        pass
+        return item.examine()
 
     def put(self):
         """ Takes from bag and puts into items """
